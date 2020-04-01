@@ -12,8 +12,7 @@ class EntryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-        
-
+    
     }
     
     @IBAction func saveEntry(_ sender: Any) {
@@ -43,12 +42,14 @@ class EntryDetailViewController: UIViewController {
     }
     
     private func updateViews() {
-        guard let entry = entry else {
-                title = "Create Entry"
-                return
-        }
+      
         
         if isViewLoaded {
+            guard let entry = entry else {
+                          title = "Create Entry"
+                          return
+                  }
+            
             
             title = entry.title
             titleTextField.text = entry.title
