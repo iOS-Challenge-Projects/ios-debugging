@@ -45,7 +45,7 @@ class EntryController {
     private func put(entry: Entry, completion: @escaping ((Error?) -> Void) = { _ in }) {
         
         let identifier = entry.identifier ?? UUID().uuidString
-        let requestURL = baseURL.appendingPathComponent(identifier).appendingPathComponent("json")
+        let requestURL = baseURL.appendingPathComponent(identifier).appendingPathComponent(".json")
         var request = URLRequest(url: requestURL)
         request.httpMethod = "PUT"
         
@@ -76,7 +76,7 @@ class EntryController {
             return
         }
         
-        let requestURL = baseURL.appendingPathComponent(identifier).appendingPathExtension("json")
+        let requestURL = baseURL.appendingPathComponent(identifier).appendingPathExtension(".json")
         var request = URLRequest(url: requestURL)
         request.httpMethod = "DELETE"
         
@@ -93,7 +93,7 @@ class EntryController {
     
     func fetchEntriesFromServer(completion: @escaping ((Error?) -> Void) = { _ in }) {
         
-        let requestURL = baseURL.appendingPathExtension("json")
+        let requestURL = baseURL.appendingPathExtension(".json")
         
         URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
             
