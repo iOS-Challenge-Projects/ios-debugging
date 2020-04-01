@@ -12,6 +12,8 @@ class EntryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        
+
     }
     
     @IBAction func saveEntry(_ sender: Any) {
