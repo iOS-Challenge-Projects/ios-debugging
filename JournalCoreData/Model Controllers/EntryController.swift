@@ -76,11 +76,11 @@ class EntryController {
             return
         }
         
-        let requestURL = baseURL.appendingPathComponent(identifier).appendingPathExtension(".json")
+        let requestURL = baseURL.appendingPathComponent(identifier).appendingPathComponent(".json")
         var request = URLRequest(url: requestURL)
         request.httpMethod = "DELETE"
         
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 NSLog("Error deleting entry from server: \(error)")
                 completion(error)
